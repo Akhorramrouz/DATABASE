@@ -1,0 +1,295 @@
+-- ISTE608 Spring 2023 Term 2225
+-- Khorramrouz, Adel
+-- ak8480@rit.edu
+
+
+mysql> USE college;
+Database changed
+mysql> SHOW VARIABLES LIKE "%VERSION%";
+--------------
+SHOW VARIABLES LIKE "%VERSION%"
+--------------
+
++--------------------------+------------------------------+
+| Variable_name            | Value                        |
++--------------------------+------------------------------+
+| admin_tls_version        | TLSv1.2,TLSv1.3              |
+| immediate_server_version | 999999                       |
+| innodb_version           | 8.0.32                       |
+| original_server_version  | 999999                       |
+| protocol_version         | 10                           |
+| replica_type_conversions |                              |
+| slave_type_conversions   |                              |
+| tls_version              | TLSv1.2,TLSv1.3              |
+| version                  | 8.0.32                       |
+| version_comment          | MySQL Community Server - GPL |
+| version_compile_machine  | x86_64                       |
+| version_compile_os       | Win64                        |
+| version_compile_zlib     | 1.2.13                       |
++--------------------------+------------------------------+
+13 rows in set (0.01 sec)
+
+mysql> SHOW DATABASES;
+--------------
+SHOW DATABASES
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| studentdb          |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT current_date;
+--------------
+SELECT current_date
+--------------
+
++--------------+
+| current_date |
++--------------+
+| 2023-01-23   |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT current_time;
+--------------
+SELECT current_time
+--------------
+
++--------------+
+| current_time |
++--------------+
+| 14:47:49     |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT current_timestamp;
+--------------
+SELECT current_timestamp
+--------------
+
++---------------------+
+| current_timestamp   |
++---------------------+
+| 2023-01-23 14:48:14 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT current_user;
+--------------
+SELECT current_user
+--------------
+
++----------------+
+| current_user   |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT now();
+--------------
+SELECT now()
+--------------
+
++---------------------+
+| now()               |
++---------------------+
+| 2023-01-23 14:49:16 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT pi();
+--------------
+SELECT pi()
+--------------
+
++----------+
+| pi()     |
++----------+
+| 3.141593 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT user();
+--------------
+SELECT user()
+--------------
+
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT version();
+--------------
+SELECT version()
+--------------
+
++-----------+
+| version() |
++-----------+
+| 8.0.32    |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from student\G
+--------------
+SELECT * from student
+--------------
+
+*************************** 1. row ***************************
+     studentID: 120050789
+      lastName: Floeser
+     firstName: Michael
+   homeAddress: 2 Main, Honeoy,Falls NY
+collegeAddress: Brigs Hall Apt 503
+     advisorID: 012345678
+  departmentID: 4002
+     graduated: 0
+*************************** 2. row ***************************
+     studentID: 121212121
+      lastName: Habermas
+     firstName: Jim
+   homeAddress: 32 Main, Plymouth, MI
+collegeAddress: Haffey Hall Apt 503
+     advisorID: 234567890
+  departmentID: 4003
+     graduated: 1
+*************************** 3. row ***************************
+     studentID: 123123123
+      lastName: Burns
+     firstName: Jeff
+   homeAddress: 8015 Arlington, Plymouth, MI
+collegeAddress: Haffey Hall Apt 503
+     advisorID: 345678901
+  departmentID: 500
+     graduated: 1
+*************************** 4. row ***************************
+     studentID: 133333330
+      lastName: Miller
+     firstName: Guy
+   homeAddress: 32 Oak St., Plymouth, MI
+collegeAddress: Haffey Hall Apt 503
+     advisorID: 345678901
+  departmentID: 500
+     graduated: 1
+*************************** 5. row ***************************
+     studentID: 233333333
+      lastName: French
+     firstName: Bryan
+   homeAddress: 3243 Main, Avon, NY
+collegeAddress: Haffey Hall Apt 503
+     advisorID: 345678901
+  departmentID: 500
+     graduated: 1
+*************************** 6. row ***************************
+     studentID: 987220220
+      lastName: Wilcox
+     firstName: Kim
+   homeAddress: 2299 West Main, Rochester, NY
+collegeAddress: Haffey Hall Apt 301
+     advisorID: 012345678
+  departmentID: 4002
+     graduated: 0
+*************************** 7. row ***************************
+     studentID: 987654321
+      lastName: Wilcox
+     firstName: Dawn
+   homeAddress: 31 Captiva, Rochester, NY
+collegeAddress: Haffey Hall Apt 301
+     advisorID: 012345678
+  departmentID: 2000
+     graduated: 0
+*************************** 8. row ***************************
+     studentID: 987659009
+      lastName: Smith
+     firstName: Dawn
+   homeAddress: 202 South St., Rochester, NY
+collegeAddress: Haffey Hall Apt 301
+     advisorID: 012345678
+  departmentID: 2000
+     graduated: 0
+8 rows in set (0.00 sec)
+
+mysql> SELECT * from student;
+--------------
+SELECT * from student
+--------------
+
++-----------+----------+-----------+-------------------------------+---------------------+-----------+--------------+-----------+
+| studentID | lastName | firstName | homeAddress                   | collegeAddress      | advisorID | departmentID | graduated |
++-----------+----------+-----------+-------------------------------+---------------------+-----------+--------------+-----------+
+| 120050789 | Floeser  | Michael   | 2 Main, Honeoy,Falls NY       | Brigs Hall Apt 503  | 012345678 | 4002         |         0 |
+| 121212121 | Habermas | Jim       | 32 Main, Plymouth, MI         | Haffey Hall Apt 503 | 234567890 | 4003         |         1 |
+| 123123123 | Burns    | Jeff      | 8015 Arlington, Plymouth, MI  | Haffey Hall Apt 503 | 345678901 | 500          |         1 |
+| 133333330 | Miller   | Guy       | 32 Oak St., Plymouth, MI      | Haffey Hall Apt 503 | 345678901 | 500          |         1 |
+| 233333333 | French   | Bryan     | 3243 Main, Avon, NY           | Haffey Hall Apt 503 | 345678901 | 500          |         1 |
+| 987220220 | Wilcox   | Kim       | 2299 West Main, Rochester, NY | Haffey Hall Apt 301 | 012345678 | 4002         |         0 |
+| 987654321 | Wilcox   | Dawn      | 31 Captiva, Rochester, NY     | Haffey Hall Apt 301 | 012345678 | 2000         |         0 |
+| 987659009 | Smith    | Dawn      | 202 South St., Rochester, NY  | Haffey Hall Apt 301 | 012345678 | 2000         |         0 |
++-----------+----------+-----------+-------------------------------+---------------------+-----------+--------------+-----------+
+8 rows in set (0.00 sec)
+
+
+mysql> INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("000000000", "Hima", "Rira", "Watson Hall, RIT", "012345678","4002",0);
+--------------
+INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("000000000", "Hima", "Rira", "Watson Hall, RIT", "012345678","4002",0)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("111111111", "Hastioun", "Saeed", "Watson Hall, RIT", "012345678","4002",0);
+--------------
+INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("111111111", "Hastioun", "Saeed", "Watson Hall, RIT", "012345678","4002",0)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("222222222", "Hass", "Jack", "Watson Hall, RIT", "012345678","4002",0);
+--------------
+INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("222222222", "Hass", "Jack", "Watson Hall, RIT", "012345678","4002",0)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("333333333", "Homayoun", "Kim", "Watson Hall, RIT", "012345678","4002",1);
+--------------
+INSERT INTO student (studentID, lastName, firstName, collegeAddress, advisorID, departmentID, graduated) VALUES ("333333333", "Homayoun", "Kim", "Watson Hall, RIT", "012345678","4002",1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT studentID, lastName, firstName, collegeAddress, advisorID, departmentID FROM STUDENT ORDER BY lastName, firstName;
+--------------
+SELECT studentID, lastName, firstName, collegeAddress, advisorID, departmentID FROM STUDENT ORDER BY lastName, firstName
+--------------
+
++-----------+----------+-----------+---------------------+-----------+--------------+
+| studentID | lastName | firstName | collegeAddress      | advisorID | departmentID |
++-----------+----------+-----------+---------------------+-----------+--------------+
+| 123123123 | Burns    | Jeff      | Haffey Hall Apt 503 | 345678901 | 500          |
+| 120050789 | Floeser  | Michael   | Brigs Hall Apt 503  | 012345678 | 4002         |
+| 233333333 | French   | Bryan     | Haffey Hall Apt 503 | 345678901 | 500          |
+| 121212121 | Habermas | Jim       | Haffey Hall Apt 503 | 234567890 | 4003         |
+| 222222222 | Hass     | Jack      | Watson Hall, RIT    | 012345678 | 4002         |
+| 111111111 | Hastioun | Saeed     | Watson Hall, RIT    | 012345678 | 4002         |
+| 000000000 | Hima     | Rira      | Watson Hall, RIT    | 012345678 | 4002         |
+| 333333333 | Homayoun | Kim       | Watson Hall, RIT    | 012345678 | 4002         |
+| 133333330 | Miller   | Guy       | Haffey Hall Apt 503 | 345678901 | 500          |
+| 987659009 | Smith    | Dawn      | Haffey Hall Apt 301 | 012345678 | 2000         |
+| 987654321 | Wilcox   | Dawn      | Haffey Hall Apt 301 | 012345678 | 2000         |
+| 987220220 | Wilcox   | Kim       | Haffey Hall Apt 301 | 012345678 | 4002         |
++-----------+----------+-----------+---------------------+-----------+--------------+
+12 rows in set (0.00 sec)
+
+mysql> notee

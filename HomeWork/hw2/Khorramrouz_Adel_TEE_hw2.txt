@@ -1,0 +1,36 @@
+mysql> SOURCE C:\Users\15856\Documents\Database\HomeWork\hw2\Khorramrouz_Adel.sql
+
+-- Adel Khorramrouz
+-- ISTE 608
+-- ak8480@rit.edu
+-- HW2
+--------------
+CREATE DATABASE HW2
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE ITEM(
+itemID VARCHAR(25),
+itemName VARCHAR(25),
+name VARCHAR(25),
+street VARCHAR(25),
+city VARCHAR(25),
+state CHAR(2),
+zipcode VARCHAR(10),
+cost DECIMAL(7,2),
+retailPrice DECIMAL(7,2),
+colors VARCHAR(25),
+notes VARCHAR(255),
+profit DECIMAL(7,2),
+shelfQty SMALLINT UNSIGNED,
+perishable BOOL,
+returnable BOOL,
+description MEDIUMTEXT)
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> notee

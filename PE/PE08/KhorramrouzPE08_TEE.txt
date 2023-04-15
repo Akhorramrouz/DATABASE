@@ -1,0 +1,96 @@
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE08\KhorramrouzPE08soln.sql
+Database changed
+
+
+-- 1. Show all recipes that have "Mom" as the source
+--------------
+select name from recipe
+where Source LIKE '%Mom%'
+--------------
+
++--------------------+
+| name               |
++--------------------+
+| Linguine Pescadoro |
+| Zuppa Inglese      |
++--------------------+
+2 rows in set (0.00 sec)
+
+
+-- 2. Show the names of recipes that have fewer than 800 calories per serving
+--------------
+select recipe.name from recipe JOIN nutrition USING (recipeId)
+where nutrition.name = "calories" and quantity < 800
+--------------
+
++----------------------+
+| name                 |
++----------------------+
+| Linguine Pescadoro   |
+| Zuppa Inglese        |
+| Crispy Fried Chicken |
++----------------------+
+3 rows in set (0.00 sec)
+
+
+
+-- 3. a shopping list of ingredients (item and quantity) for cooking Beef Parmesan
+--------------
+select ingredients.name, quantity from ingredients JOIN ingredientlist USING(ingredientId)
+JOIN recipe Using(recipeId)
+WHERE recipe.name LIKE "%Beef Parmesan%"
+--------------
+
++------------------------------------+----------+
+| name                               | quantity |
++------------------------------------+----------+
+| beef cube steak                    |      1.5 |
+| onion, sliced into thin rings      |        1 |
+| green bell pepper, sliced in rings |        1 |
+| Italian seasoned bread crumbs      |        1 |
+| grated Parmesan cheese             |      0.5 |
+| olive oil                          |    0.125 |
+| spaghetti sauce                    |        1 |
+| shredded mozzarella cheese         |      0.5 |
+| angel hair pasta                   |        1 |
+| garlic                             |        1 |
+| butter                             |    0.125 |
++------------------------------------+----------+
+11 rows in set (0.00 sec)
+
+
+
+-- 4. Find recipes that do not use beef, pork, chicken, or lamb
+--------------
+SELECT distinct recipe.name from recipe where recipeid NOT IN(
+    select recipeId from ingredients JOIN ingredientlist USING(ingredientId)
+    where type in("pork","beef","chicken","lamb"))
+--------------
+
++--------------------+
+| name               |
++--------------------+
+| Linguine Pescadoro |
+| Zuppa Inglese      |
+| Lobster Thermadore |
++--------------------+
+3 rows in set (0.00 sec)
+
+
+
+-- 5. Find name of fish recipes with fewer than 700 calories per serving
+--------------
+select distinct recipe.name from recipe join nutrition Using(recipeId)
+JOIN ingredientlist USING(recipeId)
+JOIN ingredients USING(ingredientId)
+WHERE type = "fish" and unit = "calories" and nutrition.quantity < 700
+--------------
+
++--------------------+
+| name               |
++--------------------+
+| Linguine Pescadoro |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> notee

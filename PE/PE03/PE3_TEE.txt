@@ -1,0 +1,184 @@
+mysql> -- Khorramrouz, Adel
+mysql> -- ISTE 608
+mysql> -- Feb 6th, Monday
+mysql> -- PE03
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE03\part03.sql
+--------------
+CREATE DATABASE PE3
+--------------
+
+ERROR 1007 (HY000): Can't create database 'pe3'; database exists
+Database changed
+--------------
+CREATE TABLE Automobile(
+VIN SMALLINT(5) UNSIGNED ZEROFILL AUTO_INCREMENT PRIMARY KEY,
+Make VARCHAR(15),
+Model VARCHAR(15),
+Year VARCHAR(4),
+Color VARCHAR(15),
+MSRP DOUBLE,
+Style VARCHAR(15))
+--------------
+
+ERROR 1050 (42S01): Table 'automobile' already exists
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE03\PART3INSERT.sql
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Chevy","Volt","2017","White",39290.99,"Hybrid")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Ford","Mustang","2019","Blue",47900.99,"Convertible")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Toyota","Prius","2018","Silver",25000.99,"Hybrid")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Toyota","Camry","2008","White",2000.50,"Sedan")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Dodge","1500","2007","Green",1799.99,"Pickup")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Automobile;
+--------------
+SELECT * FROM Automobile
+--------------
+
++-------+--------+---------+------+--------+----------+-------------+
+| VIN   | Make   | Model   | Year | Color  | MSRP     | Style       |
++-------+--------+---------+------+--------+----------+-------------+
+| 00001 | Chevy  | Volt    | 2017 | White  | 39290.99 | Hybrid      |
+| 00002 | Ford   | Mustang | 2019 | Blue   | 47900.99 | Convertible |
+| 00003 | Toyota | Prius   | 2018 | Silver | 25000.99 | Hybrid      |
+| 00004 | Toyota | Camry   | 2008 | White  |   2000.5 | Sedan       |
+| 00005 | Dodge  | 1500    | 2007 | Green  |  1799.99 | Pickup      |
+| 00006 | Chevy  | Volt    | 2017 | White  | 39290.99 | Hybrid      |
+| 00007 | Ford   | Mustang | 2019 | Blue   | 47900.99 | Convertible |
+| 00008 | Toyota | Prius   | 2018 | Silver | 25000.99 | Hybrid      |
+| 00009 | Toyota | Camry   | 2008 | White  |   2000.5 | Sedan       |
+| 00010 | Dodge  | 1500    | 2007 | Green  |  1799.99 | Pickup      |
++-------+--------+---------+------+--------+----------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Automobile\G;
+--------------
+SELECT * FROM Automobile
+--------------
+
+*************************** 1. row ***************************
+  VIN: 00001
+ Make: Chevy
+Model: Volt
+ Year: 2017
+Color: White
+ MSRP: 39290.99
+Style: Hybrid
+*************************** 2. row ***************************
+  VIN: 00002
+ Make: Ford
+Model: Mustang
+ Year: 2019
+Color: Blue
+ MSRP: 47900.99
+Style: Convertible
+*************************** 3. row ***************************
+  VIN: 00003
+ Make: Toyota
+Model: Prius
+ Year: 2018
+Color: Silver
+ MSRP: 25000.99
+Style: Hybrid
+*************************** 4. row ***************************
+  VIN: 00004
+ Make: Toyota
+Model: Camry
+ Year: 2008
+Color: White
+ MSRP: 2000.5
+Style: Sedan
+*************************** 5. row ***************************
+  VIN: 00005
+ Make: Dodge
+Model: 1500
+ Year: 2007
+Color: Green
+ MSRP: 1799.99
+Style: Pickup
+*************************** 6. row ***************************
+  VIN: 00006
+ Make: Chevy
+Model: Volt
+ Year: 2017
+Color: White
+ MSRP: 39290.99
+Style: Hybrid
+*************************** 7. row ***************************
+  VIN: 00007
+ Make: Ford
+Model: Mustang
+ Year: 2019
+Color: Blue
+ MSRP: 47900.99
+Style: Convertible
+*************************** 8. row ***************************
+  VIN: 00008
+ Make: Toyota
+Model: Prius
+ Year: 2018
+Color: Silver
+ MSRP: 25000.99
+Style: Hybrid
+*************************** 9. row ***************************
+  VIN: 00009
+ Make: Toyota
+Model: Camry
+ Year: 2008
+Color: White
+ MSRP: 2000.5
+Style: Sedan
+*************************** 10. row ***************************
+  VIN: 00010
+ Make: Dodge
+Model: 1500
+ Year: 2007
+Color: Green
+ MSRP: 1799.99
+Style: Pickup
+10 rows in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> DESCRIBE Automobile;
+--------------
+DESCRIBE Automobile
+--------------
+
++-------+-------------------------------+------+-----+---------+----------------+
+| Field | Type                          | Null | Key | Default | Extra          |
++-------+-------------------------------+------+-----+---------+----------------+
+| VIN   | smallint(5) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| Make  | varchar(15)                   | YES  |     | NULL    |                |
+| Model | varchar(15)                   | YES  |     | NULL    |                |
+| Year  | varchar(4)                    | YES  |     | NULL    |                |
+| Color | varchar(15)                   | YES  |     | NULL    |                |
+| MSRP  | double                        | YES  |     | NULL    |                |
+| Style | varchar(15)                   | YES  |     | NULL    |                |
++-------+-------------------------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> notee;

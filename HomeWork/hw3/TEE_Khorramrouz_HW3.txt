@@ -1,0 +1,223 @@
+mysql> SOURCE C:\Users\15856\Documents\Database\HomeWork\hw3\khorramrouz_hw3_p1.sql
+Database changed
+--------------
+SELECT headOfState
+ FROM country
+ WHERE localName = "United States"
+--------------
+
++-----------------+
+| headOfState     |
++-----------------+
+| Donald J. Trump |
++-----------------+
+1 row in set (0.00 sec)
+
+--------------
+UPDATE country
+ SET headOfState = "Joseph R. Biden Jr."
+ WHERE localName = "United States"
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+SELECT headOfState
+ FROM country
+ WHERE localName = "United States"
+--------------
+
++---------------------+
+| headOfState         |
++---------------------+
+| Joseph R. Biden Jr. |
++---------------------+
+1 row in set (0.00 sec)
+
+--------------
+SELECT NAME
+ FROM country
+ WHERE indepYear IS NULL
+--------------
+
++----------------------------------------------+
+| NAME                                         |
++----------------------------------------------+
+| Aruba                                        |
+| Anguilla                                     |
+| Netherlands Antilles                         |
+| American Samoa                               |
+| Antarctica                                   |
+| French Southern territories                  |
+| Bermuda                                      |
+| Bouvet Island                                |
+| Cocos (Keeling) Islands                      |
+| Cook Islands                                 |
+| Christmas Island                             |
+| Cayman Islands                               |
+| Western Sahara                               |
+| Falkland Islands                             |
+| Faroe Islands                                |
+| Gibraltar                                    |
+| Guadeloupe                                   |
+| Greenland                                    |
+| French Guiana                                |
+| Guam                                         |
+| Hong Kong                                    |
+| Heard Island and McDonald Islands            |
+| British Indian Ocean Territory               |
+| Macao                                        |
+| Northern Mariana Islands                     |
+| Montserrat                                   |
+| Martinique                                   |
+| Mayotte                                      |
+| New Caledonia                                |
+| Norfolk Island                               |
+| Niue                                         |
+| Pitcairn                                     |
+| Puerto Rico                                  |
+| Palestine                                    |
+| French Polynesia                             |
+| RÈunion                                     |
+| South Georgia and the South Sandwich Islands |
+| Saint Helena                                 |
+| Svalbard and Jan Mayen                       |
+| Saint Pierre and Miquelon                    |
+| Turks and Caicos Islands                     |
+| Tokelau                                      |
+| East Timor                                   |
+| United States Minor Outlying Islands         |
+| Virgin Islands, British                      |
+| Virgin Islands, U.S.                         |
+| Wallis and Futuna                            |
++----------------------------------------------+
+47 rows in set (0.00 sec)
+
+--------------
+SELECT name, continent
+ FROM country
+ WHERE population >= 1000000000 AND lifeExpectancy BETWEEN 70 AND 80
+--------------
+
++-------+-----------+
+| name  | continent |
++-------+-----------+
+| China | Asia      |
++-------+-----------+
+1 row in set (0.00 sec)
+
+--------------
+SELECT NAME
+ FROM country
+ WHERE continent in("North America","South America")
+--------------
+
++----------------------------------+
+| NAME                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Argentina                        |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Bolivia                          |
+| Brazil                           |
+| Barbados                         |
+| Canada                           |
+| Chile                            |
+| Colombia                         |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Ecuador                          |
+| Falkland Islands                 |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| French Guiana                    |
+| Guyana                           |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Peru                             |
+| Puerto Rico                      |
+| Paraguay                         |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Suriname                         |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| Uruguay                          |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Venezuela                        |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+51 rows in set (0.00 sec)
+
+mysql> SOURCE C:\Users\15856\Documents\Database\HomeWork\hw3\Khorramrouz_hw3p2.sql
+Database changed
+--------------
+INSERT INTO contactinfo VALUES
+(3,"Eli","T","Wallowby","etwallowby@concor.com","http://www.concor.com/~wallowby","1956-03-26","All meetings must be scheduled through his assistant."),
+(4,"Eve","C","Sampson","esampson@concor.com",NULL,"1972-05-11","Very helpful."),
+(5,"Carson","B","Campbell","cbc232@mvch.org",NULL,"1955-01-05","Wife: Lisa Kids: Lucas, Lucy, and Lucinda."),
+(6,"Adel",NULL,"Khorramrouz","ak8480@rit.edu",NULL,"1999-05-13",NULL)
+--------------
+
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE contactinfo
+ADD COLUMN nickname VARCHAR(20) DEFAULT "To Be Determined"
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE contactinfo MODIFY firstName VARCHAR(15) NOT NULL
+--------------
+
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE contactinfo MODIFY lastName VARCHAR(25) NOT NULL
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+UPDATE contactinfo
+SET nickname = "DAVE"
+WHERE lastName = "Munson"
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+DELETE FROM contactinfo WHERE url = "www.concor.com/~wallowby"
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> notee;

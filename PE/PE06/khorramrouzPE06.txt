@@ -1,0 +1,72 @@
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE06\khorramrouz_week8.sql
+--------------
+DROP DATABASE IF EXISTS KHorramrouz_PE06
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE DATABASE KHorramrouz_PE06
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE Customer (
+  CustID CHAR(10) PRIMARY KEY,
+  CustName VARCHAR(255) ,
+  CustContact VARCHAR(255)
+)
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE TABLE Product (
+  ProdID CHAR(10) PRIMARY KEY,
+  ProdDescription VARCHAR(255),
+  UnitPrice DECIMAL(10,2)
+)
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE TABLE PO_Detail (
+  PO INT PRIMARY KEY,
+  CustID CHAR(10),
+  ProductID CHAR(10),
+  Quantity INT,
+  CONSTRAINT custID_Customer_fk FOREIGN KEY (CustID) REFERENCES Customer(CustID),
+  CONSTRAINT prodID_Product_fk FOREIGN KEY (ProductID) REFERENCES Product(ProdID)
+)
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+
+--------------
+CREATE TABLE PO (
+  PO INT PRIMARY KEY,
+  OrderDate DATE,
+  BillToAddress VARCHAR(255),
+  ShipToAddress VARCHAR(255),
+  CONSTRAINT PO_PO_Detail_fk FOREIGN KEY (PO) REFERENCES PO_Detail(PO)
+)
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE TABLE Paid_PO (
+  PO INT,
+  Date DATE,
+  Amount DECIMAL(10,2),
+  PRIMARY KEY (PO, Date),
+  CONSTRAINT PO_Paid_PO_fk FOREIGN KEY (PO) REFERENCES PO_Detail(PO)
+)
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> notee

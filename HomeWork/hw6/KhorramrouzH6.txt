@@ -1,0 +1,184 @@
+mysql> -- Adel Khorramrouz
+mysql> -- ISTE 608
+mysql> -- HW06
+mysql> -- 29/03/2023
+mysql> SOURCE C:\Users\15856\Documents\Database\HomeWork\hw6\Khorramrouz_HW06.sql
+Database changed
+--------------
+SELECT Title, CatDescription FROM book
+    JOIN Category ON book.Category = Category.CatID
+    ORDER BY CatDescription DESC, Title ASC
+--------------
+
++--------------------------------------------------+-----------------+
+| Title                                            | CatDescription  |
++--------------------------------------------------+-----------------+
+| The Shortest Book in the World                   | Sports          |
+| Yes! Networking is for Bills Fans                | Sports          |
+| Calculus for Phys Ed Majors                      | Science         |
+| I Lasted my Love's Last Lingering Longing        | Romance         |
+| My Lost Love's Long Last Lingering               | Romance         |
+| My Love's at Long Last Lost his Lingering        | Romance         |
+| My Love's Last Lingering Lost                    | Romance         |
+| My Love's Last Longing                           | Romance         |
+| Women are From Venus ORACLE is from Beyond Pluto | Romance         |
+| A language without Pointers? Priceless.          | Programming     |
+| How to add Class to your Programming             | Programming     |
+| JAVA: It's more than Just a Programming Language | Programming     |
+| How to Keep your Cable Bill Down                 | Networking      |
+| How to Keep your Cellular Bill Down              | Networking      |
+| Tired of wired? Infrared instead!                | Networking      |
+| The Science of Literature Searching              | Library Science |
+| From Brockport to IT                             | Geography       |
+| From Deep in the Heart of Texas to IT            | Geography       |
+| From the Shores of Lake Erie to IT               | Geography       |
+| ER, SOM, NF, DK/NF, SQL, JDBC, ODBC, and RELVAR  | Database        |
+| Master C++ Through The Classic Comics            | Comics          |
+| Master HTML Through The Classic Comics           | Comics          |
+| Master Wireless Through The Classic Comics       | Comics          |
++--------------------------------------------------+-----------------+
+23 rows in set (0.00 sec)
+
+--------------
+SELECT Title, Rating FROM book
+    JOIN BookReview USING (ISBN)
+        JOIN Reviewer USING(ReviewerID)
+            WHERE EmployedBy IS Null
+--------------
+
++---------------------------------------+--------+
+| Title                                 | Rating |
++---------------------------------------+--------+
+| How to Keep your Cellular Bill Down   |      7 |
+| How to Keep your Cable Bill Down      |      7 |
+| From Deep in the Heart of Texas to IT |      6 |
++---------------------------------------+--------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT Title, Author.Lastname, Author.FirstName From book
+    JOIN BookAuthor USING (ISBN)
+        JOIN Author USING (AuthorID)
+        ORDER BY book.Title ASC, Author.LastName ASC
+--------------
+
++--------------------------------------------------+------------+-----------+
+| Title                                            | Lastname   | FirstName |
++--------------------------------------------------+------------+-----------+
+| A language without Pointers? Priceless.          | Axelrod    | Mike      |
+| A language without Pointers? Priceless.          | Bierre     | Kevin     |
+| Calculus for Phys Ed Majors                      | Garrison   | Dan       |
+| Calculus for Phys Ed Majors                      | Hartpence  | Bruce     |
+| Calculus for Phys Ed Majors                      | Troell     | Luther    |
+| ER, SOM, NF, DK/NF, SQL, JDBC, ODBC, and RELVAR  | Stratton   | Bill      |
+| From Brockport to IT                             | Johnson    | Daryl     |
+| From Deep in the Heart of Texas to IT            | Troell     | Luther    |
+| From the Shores of Lake Erie to IT               | Stratton   | Bill      |
+| How to add Class to your Programming             | Kang       | Jai       |
+| How to add Class to your Programming             | Niemi      | Rayno     |
+| How to Keep your Cable Bill Down                 | Hartpence  | Bruce     |
+| How to Keep your Cellular Bill Down              | Hartpence  | Bruce     |
+| I Lasted my Love's Last Lingering Longing        | Heartthrob | Danielle  |
+| JAVA: It's more than Just a Programming Language | Sonstein   | Jeff      |
+| Master C++ Through The Classic Comics            | Machogeek  | Hero      |
+| Master C++ Through The Classic Comics            | Webguy     | Smerdley  |
+| Master HTML Through The Classic Comics           | Machogeek  | Hero      |
+| Master HTML Through The Classic Comics           | Webguy     | Smerdley  |
+| Master Wireless Through The Classic Comics       | Hartpence  | Bruce     |
+| My Lost Love's Long Last Lingering               | Heartthrob | Danielle  |
+| My Love's at Long Last Lost his Lingering        | Heartthrob | Danielle  |
+| My Love's Last Lingering Lost                    | Heartthrob | Danielle  |
+| My Love's Last Longing                           | Heartthrob | Danielle  |
+| The Science of Literature Searching              | Henderson  | Tona      |
+| The Science of Literature Searching              | Lawley     | Elizabeth |
+| The Shortest Book in the World                   | Phelps     | Andrew    |
+| Tired of wired? Infrared instead!                | Hartpence  | Bruce     |
+| Women are From Venus ORACLE is from Beyond Pluto | Weeden     | Elissa    |
+| Yes! Networking is for Bills Fans                | Leone      | James     |
+| Yes! Networking is for Bills Fans                | Lutz       | Peter     |
+| Yes! Networking is for Bills Fans                | Phelps     | Andrew    |
++--------------------------------------------------+------------+-----------+
+32 rows in set (0.00 sec)
+
+--------------
+SELECT Title, Author.LastName, Author.FirstName, Price FROM book
+    JOIN OwnersBook USING (ISBN)
+        JOIN BookAuthor USING (ISBN)
+            JOIN Author USING (AuthorID)
+                WHERE Price <= 50
+                    ORDER BY Price DESC, Title ASC
+--------------
+
++-------------------------------------------------+------------+-----------+-------+
+| Title                                           | LastName   | FirstName | Price |
++-------------------------------------------------+------------+-----------+-------+
+| ER, SOM, NF, DK/NF, SQL, JDBC, ODBC, and RELVAR | Stratton   | Bill      | 50.00 |
+| My Love's Last Longing                          | Heartthrob | Danielle  | 50.00 |
+| How to Keep your Cable Bill Down                | Hartpence  | Bruce     | 45.00 |
+| Yes! Networking is for Bills Fans               | Lutz       | Peter     | 40.00 |
+| Yes! Networking is for Bills Fans               | Leone      | James     | 40.00 |
+| Yes! Networking is for Bills Fans               | Phelps     | Andrew    | 40.00 |
+| The Shortest Book in the World                  | Phelps     | Andrew    | 35.00 |
+| How to Keep your Cellular Bill Down             | Hartpence  | Bruce     | 25.00 |
+| My Lost Love's Long Last Lingering              | Heartthrob | Danielle  | 25.00 |
+| From the Shores of Lake Erie to IT              | Stratton   | Bill      |  0.00 |
++-------------------------------------------------+------------+-----------+-------+
+10 rows in set (0.00 sec)
+
+--------------
+SELECT Title, Reviewer.name FROM book
+    LEFT JOIN BookReview USING (ISBN)
+        LEFT JOIN Reviewer USING (ReviewerID)
+--------------
+
++--------------------------------------------------+-------------+
+| Title                                            | name        |
++--------------------------------------------------+-------------+
+| Women are From Venus ORACLE is from Beyond Pluto | Phelps      |
+| Calculus for Phys Ed Majors                      | NULL        |
+| My Love's Last Longing                           | Heartthrob  |
+| From the Shores of Lake Erie to IT               | Yacci       |
+| My Love's Last Lingering Lost                    | Troell      |
+| My Love's Last Lingering Lost                    | Phelps      |
+| The Science of Literature Searching              | NULL        |
+| Yes! Networking is for Bills Fans                | Kurtz       |
+| Yes! Networking is for Bills Fans                | Whittington |
+| Yes! Networking is for Bills Fans                | Stratton    |
+| How to Keep your Cellular Bill Down              | Leone       |
+| How to Keep your Cellular Bill Down              | Whittington |
+| Tired of wired? Infrared instead!                | NULL        |
+| ER, SOM, NF, DK/NF, SQL, JDBC, ODBC, and RELVAR  | Bills       |
+| Master Wireless Through The Classic Comics       | NULL        |
+| How to Keep your Cable Bill Down                 | Leone       |
+| I Lasted my Love's Last Lingering Longing        | Weeden      |
+| From Deep in the Heart of Texas to IT            | Leone       |
+| My Lost Love's Long Last Lingering               | Stratton    |
+| From Brockport to IT                             | Yacci       |
+| From Brockport to IT                             | Perez-Hardy |
+| Master HTML Through The Classic Comics           | NULL        |
+| The Shortest Book in the World                   | Kurtz       |
+| The Shortest Book in the World                   | Stratton    |
+| My Love's at Long Last Lost his Lingering        | Weeden      |
+| How to add Class to your Programming             | McVea       |
+| Master C++ Through The Classic Comics            | NULL        |
+| A language without Pointers? Priceless.          | NULL        |
+| JAVA: It's more than Just a Programming Language | Whittington |
++--------------------------------------------------+-------------+
+29 rows in set (0.00 sec)
+
+--------------
+SELECT ISBN, Title FROM book
+    Join Category ON book.Category = Category.CatID
+        WHERE CatDescription LIKE 'S%'
+--------------
+
++---------------+-----------------------------------+
+| ISBN          | Title                             |
++---------------+-----------------------------------+
+| 1-222-32443-7 | Calculus for Phys Ed Majors       |
+| 2-089-77869-5 | Yes! Networking is for Bills Fans |
+| 8-330-69586-6 | The Shortest Book in the World    |
++---------------+-----------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> notee

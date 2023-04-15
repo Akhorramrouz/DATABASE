@@ -1,0 +1,177 @@
+mysql> -- Khorramrouz, Adel
+mysql> -- ISTE230.01 Spring 2023 Term 2225
+mysql> SELECT CURDATE();
+--------------
+SELECT CURDATE()
+--------------
+
++------------+
+| CURDATE()  |
++------------+
+| 2023-01-20 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW VARIABLES LIKE "%VERSION%";
+--------------
+SHOW VARIABLES LIKE "%VERSION%"
+--------------
+
++--------------------------+------------------------------+
+| Variable_name            | Value                        |
++--------------------------+------------------------------+
+| admin_tls_version        | TLSv1.2,TLSv1.3              |
+| immediate_server_version | 999999                       |
+| innodb_version           | 8.0.32                       |
+| original_server_version  | 999999                       |
+| protocol_version         | 10                           |
+| replica_type_conversions |                              |
+| slave_type_conversions   |                              |
+| tls_version              | TLSv1.2,TLSv1.3              |
+| version                  | 8.0.32                       |
+| version_comment          | MySQL Community Server - GPL |
+| version_compile_machine  | x86_64                       |
+| version_compile_os       | Win64                        |
+| version_compile_zlib     | 1.2.13                       |
++--------------------------+------------------------------+
+13 rows in set (0.01 sec)
+
+mysql> SHOW VARIABLES LIKE "VERSION";
+--------------
+SHOW VARIABLES LIKE "VERSION"
+--------------
+
++---------------+--------+
+| Variable_name | Value  |
++---------------+--------+
+| version       | 8.0.32 |
++---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT date("2023-01-17") AS "Start of This Semester";
+--------------
+SELECT date("2023-01-17") AS "Start of This Semester"
+--------------
+
++------------------------+
+| Start of This Semester |
++------------------------+
+| 2023-01-17             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT date_add(CURDATE(), INTERVAL 14 WEEK) AS "End of This Semester";
+--------------
+SELECT date_add(CURDATE(), INTERVAL 14 WEEK) AS "End of This Semester"
+--------------
+
++----------------------+
+| End of This Semester |
++----------------------+
+| 2023-04-28           |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW VARIABLES LIKE "datadir";
+--------------
+SHOW VARIABLES LIKE "datadir"
+--------------
+
++---------------+---------------------------------------------+
+| Variable_name | Value                                       |
++---------------+---------------------------------------------+
+| datadir       | C:\ProgramData\MySQL\MySQL Server 8.0\Data\ |
++---------------+---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW DATABASES;
+--------------
+SHOW DATABASES
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| studentdb          |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE studentdb;
+Database changed
+mysql> SHOW TABLES;
+--------------
+SHOW TABLES
+--------------
+
++---------------------+
+| Tables_in_studentdb |
++---------------------+
+| student             |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT * FROM student;
+--------------
+SELECT * FROM student
+--------------
+
++-----------+-----------+-----------+-------+--------------+------+
+| studentID | lastName  | firstName | class | departmentID | gpa  |
++-----------+-----------+-----------+-------+--------------+------+
+| 00001     | Habermas  | Karen     | JR    | 4002         | 3.75 |
+| 12345     | Bettinger | Matthew   | JR    | 4002         | 3.33 |
+| 12355     | Collins   | Andrew    | FR    | 4002         | 3.80 |
+| 12365     | Kang      | Jay       | GR    | 4003         | 3.99 |
+| 12375     | Habermas  | Jim       | GR    | 4003         | 3.66 |
+| 22222     | Holdan    | Edward    | SR    | 4002         | 3.50 |
+| 33343     | Zilora    | Stephen   | GR    | 4002         | 4.00 |
++-----------+-----------+-----------+-------+--------------+------+
+7 rows in set (0.00 sec)
+
+mysql> INSERT INTO student VALUES ("00002","Khorramrouz","Adel","SR","4002",4.00);
+--------------
+INSERT INTO student VALUES ("00002","Khorramrouz","Adel","SR","4002",4.00)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO student VALUES ("00003","Shafee","Zari","SR","4002",3.87);
+--------------
+INSERT INTO student VALUES ("00003","Shafee","Zari","SR","4002",3.87)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO student VALUES ("00004","Sarmast","Mastaneh","SR","4002",2.57);
+--------------
+INSERT INTO student VALUES ("00004","Sarmast","Mastaneh","SR","4002",2.57)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM student;
+--------------
+SELECT * FROM student
+--------------
+
++-----------+-------------+-----------+-------+--------------+------+
+| studentID | lastName    | firstName | class | departmentID | gpa  |
++-----------+-------------+-----------+-------+--------------+------+
+| 00001     | Habermas    | Karen     | JR    | 4002         | 3.75 |
+| 00002     | Khorramrouz | Adel      | SR    | 4002         | 4.00 |
+| 00003     | Shafee      | Zari      | SR    | 4002         | 3.87 |
+| 00004     | Sarmast     | Mastaneh  | SR    | 4002         | 2.57 |
+| 12345     | Bettinger   | Matthew   | JR    | 4002         | 3.33 |
+| 12355     | Collins     | Andrew    | FR    | 4002         | 3.80 |
+| 12365     | Kang        | Jay       | GR    | 4003         | 3.99 |
+| 12375     | Habermas    | Jim       | GR    | 4003         | 3.66 |
+| 22222     | Holdan      | Edward    | SR    | 4002         | 3.50 |
+| 33343     | Zilora      | Stephen   | GR    | 4002         | 4.00 |
++-----------+-------------+-----------+-------+--------------+------+
+10 rows in set (0.00 sec)
+
+mysql> notee

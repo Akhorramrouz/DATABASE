@@ -1,0 +1,241 @@
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE04\Khorramrouz_PE014.sql
+Database changed
+--------------
+SELECT title AS "Title of Film", length AS "Length of Film", RIGHT(description,55) AS "Part of Description (Right Side)" FROM film
+WHERE length <= 100 AND description LIKE "%fun%"
+--------------
+
++---------------------+----------------+---------------------------------------------------------+
+| Title of Film       | Length of Film | Part of Description (Right Side)                        |
++---------------------+----------------+---------------------------------------------------------+
+| ALONE TRIP          |             82 |  a Dog who must Outrun a Boat in An Abandoned Fun House |
+| ANYTHING SAVANNAH   |             82 | man who must Chase a Feminist in An Abandoned Fun House |
+| BEDAZZLED MARRIED   |             73 | who must Meet a Mad Scientist in An Abandoned Fun House |
+| BLUES INSTINCT      |             50 |  Meet a Forensic Psychologist in An Abandoned Fun House |
+| BORROWERS BEDAZZLED |             63 | stler who must Outsmart a Man in An Abandoned Fun House |
+| CLUELESS BUCKET     |             95 | who must Help a Sumo Wrestler in An Abandoned Fun House |
+| ISHTAR ROCKETEER    |             79 |  Squirrel who must Help a Dog in An Abandoned Fun House |
+| ISLAND EXORCIST     |             84 | a Boy who must Find a Dentist in An Abandoned Fun House |
+| SADDLE ANTITRUST    |             80 | A Shark who must Save a Woman in An Abandoned Fun House |
+| SENSE GREEK         |             54 | o must Escape a Sumo Wrestler in An Abandoned Fun House |
+| SHANGHAI TYCOON     |             47 | jack who must Build a Husband in An Abandoned Fun House |
++---------------------+----------------+---------------------------------------------------------+
+11 rows in set (0.00 sec)
+
+--------------
+SELECT title AS "Title of Film", length AS "Length of Film", RIGHT(description,60) AS "Part of Description (Right Side)" FROM film
+WHERE description LIKE "%Database%" OR description LIKE "%California%"
+--------------
+
++-------------------------+----------------+--------------------------------------------------------------+
+| Title of Film           | Length of Film | Part of Description (Right Side)                             |
++-------------------------+----------------+--------------------------------------------------------------+
+| ACE GOLDFINGER          |             48 | istrator And a Explorer who must Find a Car in Ancient China |
+| ALABAMA DEVIL           |            114 |  Mad Scientist who must Outrun a Mad Scientist in A Jet Boat |
+| ALICE NEVERMORE         |             94 | atabase Administrator who must Vanquish a Pioneer in Georgia |
+| AMERICAN CIRCUS         |            129 | onaut who must Face a Database Administrator in A Shark Tank |
+| AMISTAD MIDSUMMER       |             85 |  And a Crocodile who must Meet a Sumo Wrestler in California |
+| ANONYMOUS HUMAN         |            179 | ut who must Outrace a Database Administrator in A Shark Tank |
+| ANTITRUST TOMATOES      |            168 |  who must Outsmart a Database Administrator in Ancient India |
+| ARMY FLINTSTONES        |            148 | inistrator And a Athlete who must Save a Waitress in Nigeria |
+| ARTIST COLDBLOODED      |            170 | n of a Robot And a Moose who must Race a Woman in California |
+| BALLROOM MOCKINGBIRD    |            173 | Composer And a Monkey who must Find a Feminist in California |
+| BIRDS PERDITION         |             61 | of a Athlete And a Pioneer who must Face a Dog in California |
+| BOUND CHEAPER           |             98 | rator And a Astronaut who must Race a Lumberjack in A Baloon |
+| BOWFINGER GABLES        |             72 | tress And a Composer who must Outrun a Dentist in California |
+| BATTLE PANTHER          |             67 | Database Administrator who must Face a Hunter in New Orleans |
+| CALIFORNIA BIRDS        |             75 | obot who must Save a Database Administrator in Ancient India |
+| CANDIDATE PERDITION     |             70 | t Vanquish a Mad Scientist in The First Manned Space Station |
+
+|........................(middle rows are deleted as requested)...........................................|
+
+| TRAFFIC HOBBIT          |            139 | ck who must Outsmart a Database Administrator in A Submarine |
+| TRAP GUYS               |            110 |  who must Race a Database Administrator in The Sahara Desert |
+| TREASURE COMMAND        |            102 | a Car And a Madman who must Discover a Pioneer in California |
+| TRUMAN CRAZY            |             92 |  a Boy who must Meet a Database Administrator in A Monastery |
+| VALENTINE VANISHING     |             48 | band And a Butler who must Reach a Pastry Chef in California |
+| VANISHED GARDEN         |            142 | rel And a A Shark who must Defeat a Lumberjack in California |
+| VIRGINA DAISY           |            179 | tist who must Reach a Database Administrator in A Shark Tank |
+| VIRTUAL SPOILERS        |            144 | trator And a Squirrel who must Discover a Student in Georgia |
+| VOLUME HOUSE            |            132 | e of a Dog And a Woman who must Meet a Dentist in California |
+| WARS PLUTO              |            128 | e Administrator who must Chase a Madman in The Sahara Desert |
+| WASTELAND DIVINE        |             85 | te who must Rescue a Database Administrator in Ancient China |
+| WEST LION               |            159 |  must Race a Database Administrator in A Manhattan Penthouse |
+| WHALE BIKINI            |            109 | ministrator who must Defeat a Feminist in A MySQL Convention |
+| YOUNG LANGUAGE          |            183 | trator who must Meet a Boy in The First Manned Space Station |
++-------------------------+----------------+--------------------------------------------------------------+
+115 rows in set (0.00 sec)
+
+--------------
+SELECT title AS Title, length As "Length of Film", rating AS Rating FROM film
+WHERE rating="G" AND length BETWEEN 120 AND 140
+--------------
+
++----------------------+----------------+--------+
+| Title                | Length of Film | Rating |
++----------------------+----------------+--------+
+| AFRICAN EGG          |            130 | G      |
+| ALAMO VIDEOTAPE      |            126 | G      |
+| BAREFOOT MANCHURIAN  |            129 | G      |
+| BEACH HEARTBREAKERS  |            122 | G      |
+| BREAKFAST GOLDFINGER |            123 | G      |
+| CHATTY BEHAVIOR      |            124 | G      |
+| DAZED PUNK           |            120 | G      |
+| DECEIVER BETRAYED    |            122 | G      |
+| DOGMA FAMILY         |            122 | G      |
+| DUDE BLINDNESS       |            132 | G      |
+| EXTRAORDINARY HELPER |            122 | G      |
+| FANTASIA PARK        |            131 | G      |
+| FARGO GANDHI         |            130 | G      |
+| GOSFORD DONNIE       |            129 | G      |
+| GREASE YOUTH         |            135 | G      |
+| JUST A RUN           |            135 | G      |
+| LIBERTY MAGNIFICENT  |            138 | G      |
+| SAINTS BRIDE         |            125 | G      |
+| SHINING ROSES        |            125 | G      |
+| STRANGER STRANGERS   |            139 | G      |
+| TRAFFIC HOBBIT       |            139 | G      |
+| WARS PLUTO           |            128 | G      |
++----------------------+----------------+--------+
+22 rows in set (0.00 sec)
+
+--------------
+SELECT title AS "Movie Title", length AS "Length of Film", rating AS Rating FROM film
+WHERE title LIKE "%river%" AND rating in ("R","PG-13")
+--------------
+
++--------------+----------------+--------+
+| Movie Title  | Length of Film | Rating |
++--------------+----------------+--------+
+| DRIVER ANNIE |            159 | PG-13  |
+| GOLD RIVER   |            154 | R      |
+| RIVER OUTLAW |            149 | PG-13  |
++--------------+----------------+--------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT title AS Title, length AS "Film Length", release_year AS "Release Year", rating AS "Film Rating" FROM film
+WHERE release_year > 2012 AND length>=160 AND rating in("G","PG-13")
+--------------
+
++------------------+-------------+--------------+-------------+
+| Title            | Film Length | Release Year | Film Rating |
++------------------+-------------+--------------+-------------+
+| CITIZEN SHREK    |         165 |         2013 | G           |
+| HELPER NUTS      |         173 |         2013 | G           |
+| DARLING BREAKING |         165 |         2013 | PG-13       |
+| KISS GLORY       |         163 |         2019 | PG-13       |
+| NAME DETECTIVE   |         178 |         2013 | PG-13       |
+| ROCKETEER MOTHER |         178 |         2013 | PG-13       |
+| THEORY MERMAID   |         184 |         2013 | PG-13       |
+| YOUNG LANGUAGE   |         183 |         2013 | G           |
++------------------+-------------+--------------+-------------+
+8 rows in set (0.00 sec)
+
+--------------
+SELECT title AS "Film Title",replacement_cost AS "Replacement cost",rating AS "Film Rating" FROM film
+WHERE replacement_cost = 19.99 AND SUBSTRING(title,2,1) != "A"
+ORDER BY rating DESC
+--------------
+
++-------------------------+------------------+-------------+
+| Film Title              | Replacement cost | Film Rating |
++-------------------------+------------------+-------------+
+| ANALYZE HOOSIERS        |            19.99 | R           |
+| SPARTACUS CHEAPER       |            19.99 | R           |
+| CROSSING DIVORCE        |            19.99 | R           |
+| DIVINE RESURRECTION     |            19.99 | R           |
+| RULES HUMAN             |            19.99 | R           |
+| QUILLS BULL             |            19.99 | R           |
+| ENTRAPMENT SATISFACTION |            19.99 | R           |
+| GROSSE WONDERFUL        |            19.99 | R           |
+| HOMEWARD CIDER          |            19.99 | R           |
+| STRAIGHT HOURS          |            19.99 | R           |
+| WEREWOLF LOLA           |            19.99 | R           |
+| SPEED SUIT              |            19.99 | PG-13       |
+| COMMAND RUSH            |            19.99 | PG-13       |
+| DESTINATION JERK        |            19.99 | PG-13       |
+| SISTER FREDDY           |            19.99 | PG-13       |
+| NOTTING SPEAKEASY       |            19.99 | PG-13       |
+| PERSONAL LADYBUGS       |            19.99 | PG-13       |
+| MIRACLE VIRTUAL         |            19.99 | PG-13       |
+| LUCKY RESCUE            |            19.99 | PG-13       |
+| SUNRISE LEAGUE          |            19.99 | PG-13       |
+| VICTORY ACADEMY         |            19.99 | PG-13       |
+| HEAVEN FREEDOM          |            19.99 | PG          |
+| HYSTERICAL GRAIL        |            19.99 | PG          |
+| SWEDEN SHINING          |            19.99 | PG          |
+| TREATMENT JEKYLL        |            19.99 | PG          |
+| WONDERLAND HOLIDAY      |            19.99 | PG          |
+| STAGE WORLD             |            19.99 | PG          |
+| BOWFINGER GABLES        |            19.99 | NR          |
+| PLACE FEAR              |            19.99 | NR          |
+| ELF MURDER              |            19.99 | NR          |
+| DRAGONFLY STRANGERS     |            19.99 | NR          |
+| SINNERS ATLANTIS        |            19.99 | NR          |
+| MYSTIC TRUMAN           |            19.99 | NR          |
+| DOWNHILL ENOUGH         |            19.99 | G           |
+| COLOR PHILADELPHIA      |            19.99 | G           |
+| MIDNIGHT WESTWARD       |            19.99 | G           |
+| STONE FIRE              |            19.99 | G           |
+| PINK SUBMARINE          |            19.99 | G           |
+| HOCUS FRIDA             |            19.99 | G           |
++-------------------------+------------------+-------------+
+39 rows in set (0.00 sec)
+
+--------------
+SELECT title AS Title, LEFT(description,55) AS "partial Description (LEFT)" From film
+WHERE description LIKE "%Frisbee%" AND description LIKE "%Fanciful%"
+--------------
+
++-------------+---------------------------------------------------------+
+| Title       | partial Description (LEFT)                              |
++-------------+---------------------------------------------------------+
+| A FAIR RACE | A Fanciful Documentary of a Frisbee And a Lumberjack wh |
+| STING PIE   | A Fanciful Drama of a Frisbee And a Dog who must Rescue |
++-------------+---------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+--------------
+SELECT title AS "Title of Film", rating AS "Film Rating", release_year AS "Film Release Year" FROM film
+WHERE (rating="G" AND release_year=2006) OR (rating="PG" AND release_year=2010)
+--------------
+
++------------------------+-------------+-------------------+
+| Title of Film          | Film Rating | Film Release Year |
++------------------------+-------------+-------------------+
+| AFRICAN EGG            | G           |              2006 |
+| AGENT TRUMAN           | PG          |              2010 |
+| ANNIE IDENTITY         | G           |              2006 |
+| BAKED CLAMS            | G           |              2006 |
+| BEACH HEARTBREAKERS    | G           |              2006 |
+| BLACKOUT PRIVATE       | PG          |              2010 |
+| BLOOD ARGONAUTS        | G           |              2006 |
+| BULWORTH COMMANDMENTS  | G           |              2006 |
+| CHAMPION FLATLINERS    | PG          |              2010 |
+| CHICKEN RESCUERS       | PG          |              2010 |
+| CHAIN LOCK             | G           |              2006 |
+| CIDER DESTINY          | PG          |              2010 |
+| CLASH FREDDY           | G           |              2006 |
+| CONNECTION MICROCOSMOS | G           |              2006 |
+| CRUELTY UNFORGIVEN     | G           |              2006 |
+| DARN FORRESTER         | G           |              2006 |
+| DEER VIRGINIAN         | G           |              2006 |
+| DISCIPLE MOTHER        | PG          |              2010 |
+
+.........  MIDDLE ROWS ARE DELETED PER REQUEST .............
+
+| SUGAR WONKA            | PG          |              2010 |
+| SUMMER SCARFACE        | G           |              2006 |
+| SUPERFLY TRIP          | PG          |              2010 |
+| TEQUILA PAST           | PG          |              2010 |
+| TRAFFIC HOBBIT         | G           |              2006 |
+| TYCOON GATHERING       | G           |              2006 |
+| VARSITY TRIP           | PG          |              2010 |
+| WAR NOTTING            | G           |              2006 |
+| WATERSHIP FRONTIER     | G           |              2006 |
+| WONDERLAND HOLIDAY     | PG          |              2010 |
++------------------------+-------------+-------------------+
+59 rows in set (0.00 sec)
+
+mysql> notee;

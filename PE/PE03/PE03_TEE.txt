@@ -1,0 +1,91 @@
+mysql> -- Khorramrouz, Adel
+mysql> -- ISTE 608
+mysql> -- PE03
+mysql> -- Feb 6th, Monday
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE03\part03.sql
+--------------
+CREATE DATABASE PE3
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE Automobile(
+VIN SMALLINT(5) UNSIGNED ZEROFILL AUTO_INCREMENT PRIMARY KEY,
+Make VARCHAR(15),
+Model VARCHAR(15),
+Year VARCHAR(4),
+Color VARCHAR(15),
+MSRP DOUBLE,
+Style VARCHAR(15))
+--------------
+
+Query OK, 0 rows affected, 2 warnings (0.01 sec)
+
+mysql> SOURCE C:\Users\15856\Documents\Database\PE\PE03\PART3INSERT.sql
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Chevy","Volt","2017","White",39290.99,"Hybrid")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Ford","Mustang","2019","Blue",47900.99,"Convertible")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Toyota","Prius","2018","Silver",25000.99,"Hybrid")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Toyota","Camry","2008","White",2000.50,"Sedan")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO Automobile(Make ,Model ,Year ,Color ,MSRP ,Style) VALUES("Dodge","1500","2007","Green",1799.99,"Pickup")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Automobile;
+--------------
+SELECT * FROM Automobile
+--------------
+
++-------+--------+---------+------+--------+----------+-------------+
+| VIN   | Make   | Model   | Year | Color  | MSRP     | Style       |
++-------+--------+---------+------+--------+----------+-------------+
+| 00001 | Chevy  | Volt    | 2017 | White  | 39290.99 | Hybrid      |
+| 00002 | Ford   | Mustang | 2019 | Blue   | 47900.99 | Convertible |
+| 00003 | Toyota | Prius   | 2018 | Silver | 25000.99 | Hybrid      |
+| 00004 | Toyota | Camry   | 2008 | White  |   2000.5 | Sedan       |
+| 00005 | Dodge  | 1500    | 2007 | Green  |  1799.99 | Pickup      |
++-------+--------+---------+------+--------+----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> DESCRIBE Automobile;
+--------------
+DESCRIBE Automobile
+--------------
+
++-------+-------------------------------+------+-----+---------+----------------+
+| Field | Type                          | Null | Key | Default | Extra          |
++-------+-------------------------------+------+-----+---------+----------------+
+| VIN   | smallint(5) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| Make  | varchar(15)                   | YES  |     | NULL    |                |
+| Model | varchar(15)                   | YES  |     | NULL    |                |
+| Year  | varchar(4)                    | YES  |     | NULL    |                |
+| Color | varchar(15)                   | YES  |     | NULL    |                |
+| MSRP  | double                        | YES  |     | NULL    |                |
+| Style | varchar(15)                   | YES  |     | NULL    |                |
++-------+-------------------------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> notee;
